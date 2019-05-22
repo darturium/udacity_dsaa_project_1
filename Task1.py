@@ -1,0 +1,43 @@
+"""
+Read file into texts and calls.
+It's ok if you don't understand how to read files.
+"""
+import csv
+with open('texts.csv', 'r') as f:
+    reader = csv.reader(f)
+    texts = list(reader)
+
+with open('calls.csv', 'r') as f:
+    reader = csv.reader(f)
+    calls = list(reader)
+
+
+"""
+TASK 1:
+How many different telephone numbers are there in the records? 
+Print a message:
+"There are <count> different telephone numbers in the records."
+"""
+
+phone_numbers = []
+
+# for data in texts, calls:
+#     for record in data:
+#         for i in range(2):
+#             if record[i] not in phone_numbers:
+#                 phone_numbers.append(record[i])
+
+for record in calls:
+    for i in range(2):
+        if record[i] not in phone_numbers:
+            phone_numbers.append(record[i])
+
+for record in texts:
+    for i in range(2):
+        if record[i] not in phone_numbers:
+            phone_numbers.append(record[i])
+
+
+print("There are {} different telephone numbers in the records."
+    .format(len(phone_numbers))
+)
