@@ -44,22 +44,23 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
-numbers = 0
 area_codes = []
 total_calls = len(calls)
+calls_from_bangalore_fixed = 0
 calls_to_bangalore_fixed = 0
 
 for record in calls:
     if record[0][0:5] == '(080)':
-        number = record[1]
-        if number[0] == '(':
-            code = number[1:number.find(')')]
+        calls_from_bangalore_fixed += 1
+        receiving_number = record[1]
+        if receiving_number[0] == '(':
+            code = receiving_number[1:receiving_number.find(')')]
             if code == '080':
                 calls_to_bangalore_fixed += 1
             if code not in area_codes:
                 area_codes.append(code)
-        if number[0] in ['7', '8', '9']:
-            code = number.split(' ')[0]
+        if receiving_number[0] in ['7', '8', '9']:
+            code = receiving_number[:4]
             if code not in area_codes:
                 area_codes.append(code)
 
@@ -71,7 +72,7 @@ for code in area_codes:
 
 
 # PART B
-fixed_to_fixed_percentage = (calls_to_bangalore_fixed / total_calls) * 100
+fixed_to_fixed_percentage = (calls_to_bangalore_fixed / calls_from_bangalore_fixed) * 100
 print(
     "\n{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore."
     .format(round(fixed_to_fixed_percentage, 2))
