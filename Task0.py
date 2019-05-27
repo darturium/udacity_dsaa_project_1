@@ -29,7 +29,7 @@ print("First record of texts, {} texts {} at time {}"
 
 
 
-print("Last record of calls, {} calls {} at time {}, lasting {}"
+print("Last record of calls, {} calls {} at time {}, lasting {} seconds"
     .format(
         calls[-1][0],
         calls[-1][1],
