@@ -21,12 +21,6 @@ Print a message:
 
 phone_numbers = []
 
-# for data in texts, calls:
-#     for record in data:
-#         for i in range(2):
-#             if record[i] not in phone_numbers:
-#                 phone_numbers.append(record[i])
-
 for record in calls:
     for i in range(2):
         if record[i] not in phone_numbers:
