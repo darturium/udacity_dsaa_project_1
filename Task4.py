@@ -40,11 +40,13 @@ for text_record in texts:
     text_receiving_numbers.append(text_record[1])
 
 for number in call_sending_numbers:
-    if number not in call_receiving_numbers:
-        if number not in text_sending_numbers:
-            if number not in text_receiving_numbers:
-                possible_marketers.append(number)
+    if number not in possible_marketers:
+        if number not in call_receiving_numbers:
+            if number not in text_sending_numbers:
+                if number not in text_receiving_numbers:
+                    possible_marketers.append(number)
 
+possible_marketers.sort()
 print("These numbers could be telemarketers: ")
 for number in possible_marketers:
     print(number)
